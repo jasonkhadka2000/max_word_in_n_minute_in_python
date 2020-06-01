@@ -14,28 +14,26 @@ def randomcharacters():
 def main():
     playagain='y'
     name = input("Enter your name: ")
-    print("Tyoe maximum words in 2 minutes")
+    n=int(input("Enter how many minutes you want to play"))
     while playagain=='y':
         os.system("cls")
-        t_end = time.time() + 60 * 0.5
+        t_end = time.time() + 60 * n
         compare_answer=list()
         score=0
         choice=int(input("Type random strings or Type a story(0 for random/1 for story)"))
         if choice==0:
             print("press enter to start")
+            input()
             while time.time() < t_end:
                 print(randomcharacters())
                 i=input()
                 compare_answer.append(i)
                 os.system("cls")
             print("Your time is over")
-            #print(compare_answer,string_list)
             for i in range(len(compare_answer)):
                 if compare_answer[i]==string_list[i]:
                     score=score+1
             print("your score is: {}".format(score))
-            playagain=input("play again(y/n)")
-            playagain=playagain.lower()
         else:
             f = open('typinggame.txt', 'r')
             for line in f:
@@ -50,10 +48,10 @@ def main():
                 if compare_answer[i]==string_list[i]:
                     score=score+1
             print("your typed {} correct lines".format(score))
-            playagain=input("play again(y/n)")
-            playagain=playagain.lower()
-            string_list.clear()
-            compare_answer.clear()
+        playagain=input("play again(y/n)")
+        playagain=playagain.lower()
+        string_list.clear()
+        compare_answer.clear()
     print("thanks {} for playing the game".format(name))
 main()
 
