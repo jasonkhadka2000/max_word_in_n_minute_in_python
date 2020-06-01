@@ -43,7 +43,7 @@ def main():
                     string_list.append(sentence[:len(sentence)-1])
                     i=input()
                     compare_answer.append(i)
-            print(string_list,compare_answer,sep="\n")
+            #print(string_list,compare_answer,sep="\n")
             for i in range(len(compare_answer)):
                 if compare_answer[i]==string_list[i]:
                     score=score+1
